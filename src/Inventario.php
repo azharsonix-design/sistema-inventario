@@ -15,6 +15,9 @@ class Inventario
     /** @var array<string, Producto> */
     private array $productos = [];
 
+    /** @var list<Movimiento> */
+    private array $movimientos = [];
+
     public function registrarProducto(
         string $codigo,
         string $nombre,
@@ -86,5 +89,57 @@ class Inventario
     public function consultarExistencias(): array
     {
         return array_map(fn (Producto $p) => $p->existencia, $this->productos);
+    }
+
+    public function registrarEntrada(string $codigo, int $cantidad, string $motivo = 'Compra a proveedor'): Movimiento
+    {
+        $producto = $this->consultarProducto($codigo);
+        self::validarCantidad($cantidad);
+
+        $producto->existencia += $cantidad;
+
+        return $this->movimientos[] = new Movimiento(
+            Movimiento::ENTRADA,
+            $producto->codigo,
+            $cantidad,
+            $producto->existencia,
+            $motivo,
+        );
+    }
+
+    public function registrarSalida(string $codigo, int $cantidad, string $motivo = 'Venta'): Movimiento
+    {
+        $producto = $this->consultarProducto($codigo);
+        self::validarCantidad($cantidad);
+        if ($cantidad > $producto->existencia) {
+            throw new InventarioException(
+                "Existencia insuficiente de {$producto->codigo}: hay {$producto->existencia} y se pidieron {$cantidad}."
+            );
+        }
+
+        $producto->existencia -= $cantidad;
+
+        return $this->movimientos[] = new Movimiento(
+            Movimiento::SALIDA,
+            $producto->codigo,
+            $cantidad,
+            $producto->existencia,
+            $motivo,
+        );
+    }
+
+    /**
+     * @return list<Movimiento>
+     */
+    public function movimientos(): array
+    {
+        return $this->movimientos;
+    }
+
+    private static function validarCantidad(int $cantidad): void
+    {
+        if ($cantidad <= 0) {
+            throw new InventarioException('La cantidad debe ser un número entero mayor que cero.');
+        }
     }
 }
