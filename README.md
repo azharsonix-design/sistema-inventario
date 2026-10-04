@@ -1,5 +1,7 @@
 # Sistema de Control de Inventario
 
+[![CI](https://github.com/azharsonix-design/sistema-inventario/actions/workflows/ci.yml/badge.svg)](https://github.com/azharsonix-design/sistema-inventario/actions/workflows/ci.yml)
+
 Caso de estudio de la actividad **"Implementación de un flujo DevOps"** — Universidad Tecnológica de Campeche, Ingeniería en Desarrollo y Gestión de Software.
 
 El sistema permitirá registrar, consultar, modificar y eliminar productos, consultar existencias, registrar entradas y salidas, y generar un reporte básico de inventario. Este repositorio prepara el entorno de trabajo (herramientas, pruebas, flujo de ramas y despliegue) para recibir el código fuente.
