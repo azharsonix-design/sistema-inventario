@@ -6,7 +6,7 @@ Datos base: producto `LAP-001` Laptop Lenovo, categoría Cómputo, precio $12,50
 
 | ID | Funcionalidad | Entrada | Resultado esperado | Resultado obtenido | Estado |
 |---|---|---|---|---|---|
-| CP-01 | Registrar producto | Datos válidos: `MOU-010`, Mouse inalámbrico, $250, 30 pzas | Producto registrado | Producto `MOU-010` registrado; el inventario tiene 2 productos | Aprobada |
+| CP-01 | Registrar producto | Datos válidos: `MOU-010`, Mouse inalámbrico, $250, 30 piezas | Producto registrado | Producto `MOU-010` registrado; el inventario tiene 2 productos | Aprobada |
 | CP-02 | Registrar producto | Código duplicado: `lap-001` | Mostrar error | «Ya existe un producto con el código LAP-001.» | Aprobada |
 | CP-03 | Consultar producto | Código existente: `LAP-001` | Mostrar producto | Muestra Laptop Lenovo con existencia 10 | Aprobada |
 | CP-04 | Consultar producto | Código inexistente: `XXX-999` | Mostrar mensaje | «No existe un producto con el código XXX-999.» | Aprobada |

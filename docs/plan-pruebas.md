@@ -51,7 +51,7 @@ Verificar que las funciones principales del Sistema de Control de Inventario ope
 | Local | Windows 11, PHP 8.2.12, Composer 2.10.3, PHPUnit 11.5, VS Code |
 | Integración continua | GitHub Actions, `ubuntu-latest`, PHP 8.2 |
 | Contenedor | Docker, imagen `php:8.2-cli-alpine`; PostgreSQL 16 con Docker Compose |
-| Datos de prueba | Productos de ejemplo: `LAP-001` Laptop Lenovo (10 pzas, $12,500) y `MOU-010` Mouse inalámbrico (30 pzas, $250) |
+| Datos de prueba | Productos de ejemplo: `LAP-001` Laptop Lenovo (10 piezas, $12,500) y `MOU-010` Mouse inalámbrico (30 piezas, $250) |
 
 ## Responsables
 
